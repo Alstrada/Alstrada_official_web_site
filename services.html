@@ -27,8 +27,52 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <style>
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: #000;
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        text-align: center;
+      }
+      .scroll-to-top a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 24px;
+      }
+      /* Additional Styles for Scroll-To-Top Button */
+      #scrollToTopBtn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007BFF; /* Change to preferred color */
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+            display: none; /* Hidden by default */
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+        #scrollToTopBtn:hover {
+            background-color: #0056b3; /* Slightly darker shade for hover */
+        }
+    </style>
   </head>
   <body>
+    <!-- Start Scroll To Top Button -->
+    <div id="scrollToTopBtn">&#x2191;</div> <!-- Unicode for Up Arrow -->
+    <!-- End Scroll To Top Button -->
+
     <!-- Start Header -->
     <header>
       <div class="container">
@@ -374,7 +418,7 @@
                 <a href="#"  style="pointer-events: none; cursor: default"><img src="img/clients/Dremio_logo_resizee.png" alt="" /></a>
               </li>
               <li>
-                <a href="#" style="pointer-events: none; cursor: default"><img src="img/clients/quazar_investment_resize.jpg" alt="" /></a>
+                <a href="#" style="pointer-events: none; cursor: default"><img src="img/clients/trinityidc_resize.png" alt="" /></a>
               </li>
               <li>
                 <a href="#" style="pointer-events: none; cursor: default"><img src="img/clients/tiger_graph_resize.jpg" alt="" /></a>
@@ -393,8 +437,6 @@
               <li>
                 <a href="#"style="pointer-events: none; cursor: default" ><img src="img/clients/draxlr_resize.png" alt="" /></a>
               </li>
-             
-             
             </ul>
           </div>
         </div>
@@ -444,6 +486,44 @@
     <!-- Flexslider -->
     <script src="js/settings.js"></script>
     <!-- Settings for JS Plugins -->
+
+    <script>
+      // Get the button
+      var mybutton = document.getElementById("scrollToTopBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      };
+
+      // When the user clicks on the button, scroll to the top of the document
+      mybutton.addEventListener("click", function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+    </script>
+
+     <!-- Include jQuery from CDN or download and host it locally -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+     <script>
+         // When the user scrolls down 20px from the top of the document, show the button
+         window.onscroll = function () {
+             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                 document.getElementById("scrollToTopBtn").style.display = "block";
+             } else {
+                 document.getElementById("scrollToTopBtn").style.display = "none";
+             }
+         };
+ 
+         // When the user clicks on the button, scroll to the top of the document
+         document.getElementById('scrollToTopBtn').addEventListener('click', function () {
+             $('html, body').animate({ scrollTop: 0 }, 'fast');
+         });
+     </script>
   </body>
 </html>
 
